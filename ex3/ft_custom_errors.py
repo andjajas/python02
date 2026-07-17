@@ -29,7 +29,22 @@ def raise_errors() -> None:
         print("Testing PlantError...")
         raise PlantError()
     except PlantError as error:
-        print("Caught PlantError:", error)
+        print("Caught PlantError:", error, "\n")
+    try:
+        print("Testing WaterError...")
+        raise WaterError()
+    except WaterError as error:
+        print("Caught WaterError:", error, "\n")
+    try:
+        print("Testing catching all garden errors...")
+        raise PlantError()
+    except GardenError as error:
+        print("Caught GardenError:", error)
+    try:
+        raise WaterError()
+    except GardenError as error:
+        print("Caught GardenError:", error)
+    print("\nAll custom error types work correctly!")
 
 
 if __name__ == "__main__":
